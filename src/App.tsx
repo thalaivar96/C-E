@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 import { Subject, Chapter } from './types';
 import { CHAPTERS, PHYSICS_UNITS } from './data/chapters';
 import { Navbar } from './components/Navbar';
