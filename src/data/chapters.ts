@@ -58,7 +58,7 @@ If net external torque about point O is zero ($\\vec{\\tau}_{ext, O} = 0$), then
       {
         id: 'f-1',
         title: 'Torque & Angular Acceleration Relationship',
-        expression: 'τ_ext = I_axis * α',
+        expression: '\\tau_{\\text{ext}} = I_{\\text{axis}} \\cdot \\alpha',
         variables: [
           { name: 'Torque', symbol: 'τ', unit: 'N·m' },
           { name: 'Moment of Inertia', symbol: 'I', unit: 'kg·m²' },
@@ -70,19 +70,19 @@ If net external torque about point O is zero ($\\vec{\\tau}_{ext, O} = 0$), then
       {
         id: 'f-2',
         title: 'Total Kinetic Energy of Rigid Body',
-        expression: 'K_total = (1/2) M v_cm² + (1/2) I_cm ω²',
+        expression: 'K_{\\text{total}} = \\frac{1}{2} M v_{\\text{cm}}^2 + \\frac{1}{2} I_{\\text{cm}} \\omega^2',
         variables: [
           { name: 'Mass', symbol: 'M', unit: 'kg' },
           { name: 'Velocity of CM', symbol: 'v_cm', unit: 'm/s' },
           { name: 'Angular Velocity', symbol: 'ω', unit: 'rad/s' },
         ],
         keyConcept: 'Decomposition into translational kinetic energy of CM plus rotational kinetic energy relative to CM.',
-        jeeTip: 'Alternatively, K_total = (1/2) I_ICR ω² using the Instantaneous Center of Rotation.',
+        jeeTip: 'Alternatively, K_{\\text{total}} = \\frac{1}{2} I_{\\text{ICR}} \\omega^2 using the Instantaneous Center of Rotation.',
       },
       {
         id: 'f-3',
         title: 'Pure Rolling Condition',
-        expression: 'v_cm = ω R and a_cm = α R',
+        expression: 'v_{\\text{cm}} = \\omega R \\quad \\text{and} \\quad a_{\\text{cm}} = \\alpha R',
         variables: [
           { name: 'CM Velocity', symbol: 'v_cm', unit: 'm/s' },
           { name: 'Radius', symbol: 'R', unit: 'm' },
@@ -178,7 +178,7 @@ Image charge position: $x' = \\frac{R^2}{d}$ from the center of the sphere.`,
       {
         id: 'f-4',
         title: 'Electrostatic Pressure on Conductor Surface',
-        expression: 'P = σ² / (2 ε_0) = (1/2) ε_0 E²',
+        expression: 'P = \\frac{\\sigma^2}{2 \\varepsilon_0} = \\frac{1}{2} \\varepsilon_0 E^2',
         variables: [
           { name: 'Surface Charge Density', symbol: 'σ', unit: 'C/m²' },
           { name: 'Electric Field', symbol: 'E', unit: 'V/m' },
@@ -188,7 +188,7 @@ Image charge position: $x' = \\frac{R^2}{d}$ from the center of the sphere.`,
       {
         id: 'f-5',
         title: 'Capacitance with Variable Dielectric k(x)',
-        expression: '1 / C = ∫ (dx) / (k(x) ε_0 A)',
+        expression: '\\frac{1}{C} = \\int \\frac{dx}{k(x) \\varepsilon_0 A}',
         variables: [
           { name: 'Dielectric Profile', symbol: 'k(x)', unit: 'dimensionless' },
           { name: 'Plate Area', symbol: 'A', unit: 'm²' },
@@ -255,7 +255,7 @@ For $r > R$: $E_{ind}(r) = \\frac{R^2}{2r} \\frac{dB}{dt}$`,
       {
         id: 'f-6',
         title: 'Motional EMF in Rotating Rod',
-        expression: 'ε = (1/2) B ω L²',
+        expression: '\\varepsilon = \\frac{1}{2} B \\omega L^2',
         variables: [
           { name: 'Magnetic Field', symbol: 'B', unit: 'Tesla' },
           { name: 'Angular Speed', symbol: 'ω', unit: 'rad/s' },
@@ -266,7 +266,7 @@ For $r > R$: $E_{ind}(r) = \\frac{R^2}{2r} \\frac{dB}{dt}$`,
       {
         id: 'f-7',
         title: 'LCR Circuit Quality Factor Q',
-        expression: 'Q = (1 / R) * √(L / C) = ω_0 L / R',
+        expression: 'Q = \\frac{1}{R} \\sqrt{\\frac{L}{C}} = \\frac{\\omega_0 L}{R}',
         variables: [
           { name: 'Resonance Frequency', symbol: 'ω_0', unit: 'rad/s' },
           { name: 'Resistance', symbol: 'R', unit: 'Ω' },
@@ -326,7 +326,7 @@ $$W = \\frac{P_1 V_1 - P_2 V_2}{n - 1} = \\frac{n R (T_1 - T_2)}{n - 1}$$`,
       {
         id: 'f-8',
         title: 'Molar Heat Capacity in Polytropic Process',
-        expression: 'C = C_v + R / (1 - n)',
+        expression: 'C = C_v + \\frac{R}{1 - n}',
         variables: [
           { name: 'Specific Heat at Const Vol', symbol: 'C_v', unit: 'J/(mol·K)' },
           { name: 'Polytropic Index', symbol: 'n', unit: 'dimensionless' },
@@ -394,7 +394,7 @@ $$y_{shift} = \\frac{D}{d} (\\mu - 1) t$$`,
       {
         id: 'f-9',
         title: 'Fringe Width in YDSE',
-        expression: 'β = λ D / d',
+        expression: '\\beta = \\frac{\\lambda D}{d}',
         variables: [
           { name: 'Wavelength', symbol: 'λ', unit: 'm' },
           { name: 'Screen Distance', symbol: 'D', unit: 'm' },
@@ -455,7 +455,7 @@ where $V_s$ is the stopping potential and $\\Phi$ is the metal work function.`,
       {
         id: 'f-10',
         title: 'Moseley Law for K-alpha X-Rays',
-        expression: '√ν = a * (Z - 1)',
+        expression: '\\sqrt{\\nu} = a (Z - 1)',
         variables: [
           { name: 'X-Ray Frequency', symbol: 'ν', unit: 'Hz' },
           { name: 'Atomic Number', symbol: 'Z', unit: 'dimensionless' },
@@ -518,9 +518,9 @@ $$\\text{True Reading} = \\text{Observed Reading} - \\text{Zero Error}$$`,
       {
         id: 'f-11',
         title: 'Fractional Error Propagation',
-        expression: 'ΔZ / Z = |a| (ΔA / A) + |b| (ΔB / B) + |c| (ΔC / C)',
+        expression: '\\frac{\\Delta Z}{Z} = |a| \\frac{\\Delta A}{A} + |b| \\frac{\\Delta B}{B} + |c| \\frac{\\Delta C}{C}',
         variables: [
-          { name: 'Quantity Z', symbol: 'Z = A^a B^b / C^c', unit: 'various' },
+          { name: 'Quantity Z', symbol: 'Z = \\frac{A^a B^b}{C^c}', unit: 'various' },
         ],
         keyConcept: 'Maximum percentage errors are ALWAYS added, never subtracted!',
       },
@@ -554,8 +554,8 @@ export const FLASHCARDS: Flashcard[] = [
     chapterTitle: 'Rotational Dynamics',
     unit: 'mechanics',
     front: 'What is the Parallel Axis Theorem for Moment of Inertia?',
-    back: 'I_axis = I_cm + M * d², where d is the perpendicular distance between the axis through Center of Mass and the parallel axis.',
-    formula: 'I = I_cm + M d²',
+    back: 'I_{\\text{axis}} = I_{\\text{cm}} + M d^2, where d is the perpendicular distance between the axis through Center of Mass and the parallel axis.',
+    formula: 'I_{\\text{axis}} = I_{\\text{cm}} + M d^2',
   },
   {
     id: 'fc-2',
@@ -563,8 +563,8 @@ export const FLASHCARDS: Flashcard[] = [
     chapterTitle: 'Rotational Dynamics',
     unit: 'mechanics',
     front: 'What is the velocity of the top-most point of a sphere rolling without slipping with CM velocity v?',
-    back: 'v_top = v_cm + ω R = v + v = 2v (forward relative to ground).',
-    formula: 'v_top = 2 v_cm',
+    back: 'v_{\\text{top}} = v_{\\text{cm}} + \\omega R = v + v = 2v (forward relative to ground).',
+    formula: 'v_{\\text{top}} = 2 v_{\\text{cm}}',
   },
   {
     id: 'fc-3',
@@ -572,8 +572,8 @@ export const FLASHCARDS: Flashcard[] = [
     chapterTitle: 'Electrostatics',
     unit: 'electrodynamics',
     front: 'What is the image charge magnitude and location for point charge q near grounded sphere of radius R at distance d?',
-    back: 'Image charge q\' = -q * (R / d), located at distance x\' = R² / d from the sphere center.',
-    formula: 'q\' = -q(R/d), x\' = R²/d',
+    back: 'Image charge q\' = -q \\left(\\frac{R}{d}\\right), located at distance x\' = \\frac{R^2}{d} from the sphere center.',
+    formula: 'q\' = -q \\left(\\frac{R}{d}\\right), \\quad x\' = \\frac{R^2}{d}',
   },
   {
     id: 'fc-4',
@@ -581,8 +581,8 @@ export const FLASHCARDS: Flashcard[] = [
     chapterTitle: 'EMI & AC',
     unit: 'electrodynamics',
     front: 'What is the quality factor Q of a series LCR resonant circuit?',
-    back: 'Q = (1 / R) * √(L / C) = ω_0 L / R. High Q factor implies a sharp resonance peak.',
-    formula: 'Q = (1/R) √(L/C)',
+    back: 'Q = \\frac{1}{R} \\sqrt{\\frac{L}{C}} = \\frac{\\omega_0 L}{R}. High Q factor implies a sharp resonance peak.',
+    formula: 'Q = \\frac{1}{R} \\sqrt{\\frac{L}{C}}',
   },
   {
     id: 'fc-5',
@@ -590,8 +590,8 @@ export const FLASHCARDS: Flashcard[] = [
     chapterTitle: 'Thermodynamics',
     unit: 'thermodynamics',
     front: 'What is the molar heat capacity C for a polytropic process PV^n = Constant?',
-    back: 'C = C_v + R / (1 - n). For monoatomic gas, C_v = 3R/2.',
-    formula: 'C = C_v + R / (1 - n)',
+    back: 'C = C_v + \\frac{R}{1 - n}. For monoatomic gas, C_v = \\frac{3}{2}R.',
+    formula: 'C = C_v + \\frac{R}{1 - n}',
   },
   {
     id: 'fc-6',
@@ -599,7 +599,7 @@ export const FLASHCARDS: Flashcard[] = [
     chapterTitle: 'Wave Optics',
     unit: 'waves_optics',
     front: 'What is the fringe shift in YDSE when a glass slab of thickness t and refractive index μ is inserted?',
-    back: 'Shift y_shift = (D / d) * (μ - 1) * t towards the side of the slab.',
-    formula: 'y_shift = (D/d)(μ - 1)t',
+    back: 'Shift y_{\\text{shift}} = \\frac{D}{d}(\\mu - 1)t towards the side of the slab.',
+    formula: 'y_{\\text{shift}} = \\frac{D}{d}(\\mu - 1)t',
   },
 ];
