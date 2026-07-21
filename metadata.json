@@ -1,0 +1,6 @@
+{
+  "name": "COFFEE&ENGINEER - JEE Advanced Physics Prep Base",
+  "description": "Highly advanced preparatory base for JEE Advanced Physics with detailed chapter breakdown, interactive simulators, PYQ bank, and Gemini AI physics solver.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
