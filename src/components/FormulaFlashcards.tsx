@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FLASHCARDS } from '../data/chapters';
 import { Layers, RotateCw, CheckCircle, ArrowLeft, ArrowRight } from 'lucide-react';
+import { MathText } from './MathText';
 
 export const FormulaFlashcards: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -64,15 +65,15 @@ export const FormulaFlashcards: React.FC = () => {
         <div className="py-8 text-center space-y-4">
           {!isFlipped ? (
             <h2 className="font-gowun text-xl sm:text-2xl text-white font-medium max-w-xl mx-auto leading-relaxed">
-              {currentCard.front}
+              <MathText text={currentCard.front} />
             </h2>
           ) : (
             <div className="space-y-4 animate-fadeIn">
               <div className="p-4 bg-neutral-900 border border-cyan-500/30 rounded-2xl font-mono text-2xl text-cyan-400 font-bold inline-block px-8">
-                {currentCard.formula}
+                <MathText text={currentCard.formula} block={true} />
               </div>
               <p className="font-gowun text-base text-neutral-300 max-w-xl mx-auto leading-relaxed">
-                {currentCard.back}
+                <MathText text={currentCard.back} />
               </p>
             </div>
           )}

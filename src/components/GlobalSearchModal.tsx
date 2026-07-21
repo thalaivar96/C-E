@@ -3,6 +3,7 @@ import { Search, X, BookOpen, Layers, Award, Sparkles, ArrowRight } from 'lucide
 import { CHAPTERS, FLASHCARDS } from '../data/chapters';
 import { PYQS } from '../data/pyqs';
 import { Chapter } from '../types';
+import { MathText } from './MathText';
 
 interface GlobalSearchModalProps {
   isOpen: boolean;
@@ -127,10 +128,10 @@ export const GlobalSearchModal: React.FC<GlobalSearchModalProps> = ({
                     className="p-3 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-cyan-500/40 cursor-pointer flex items-center justify-between group transition-all"
                   >
                     <div className="space-y-1">
-                      <div className="font-gowun text-xs text-neutral-200">{f.front}</div>
+                      <div className="font-gowun text-xs text-neutral-200"><MathText text={f.front} /></div>
                       {f.formula && (
                         <div className="font-mono text-xs text-cyan-400 bg-black/40 px-2 py-0.5 rounded inline-block">
-                          {f.formula}
+                          <MathText text={f.formula} />
                         </div>
                       )}
                     </div>
@@ -162,7 +163,7 @@ export const GlobalSearchModal: React.FC<GlobalSearchModalProps> = ({
                       <span className="text-neutral-500">{p.chapterTitle}</span>
                     </div>
                     <div className="font-gowun text-xs text-neutral-300 line-clamp-2">
-                      {p.questionText}
+                      <MathText text={p.questionText} />
                     </div>
                   </div>
                 ))}

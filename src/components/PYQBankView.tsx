@@ -3,6 +3,7 @@ import { PYQS } from '../data/pyqs';
 import { CHAPTERS } from '../data/chapters';
 import { PYQ } from '../types';
 import { Award, Clock, CheckCircle2, XCircle, AlertTriangle, Eye, RefreshCw } from 'lucide-react';
+import { MathText } from './MathText';
 
 export const PYQBankView: React.FC = () => {
   const [selectedYear, setSelectedYear] = useState<string>('all');
@@ -135,7 +136,7 @@ export const PYQBankView: React.FC = () => {
 
               {/* Question Body */}
               <div className="font-gowun text-neutral-200 text-base leading-relaxed bg-neutral-900/60 p-4 rounded-xl border border-neutral-800">
-                {q.questionText}
+                <MathText text={q.questionText} />
               </div>
 
               {/* Multiple Choice Options */}
@@ -155,7 +156,7 @@ export const PYQBankView: React.FC = () => {
                             : 'bg-neutral-900 border-neutral-800 text-neutral-300 hover:border-neutral-700'
                         }`}
                       >
-                        {opt}
+                        <MathText text={opt} />
                       </button>
                     );
                   })}
@@ -186,9 +187,9 @@ export const PYQBankView: React.FC = () => {
                   <div className="font-orbitron font-bold text-cyan-400 text-sm">
                     CORRECT ANSWER: {targetAnswers.join(', ')}
                   </div>
-                  <pre className="whitespace-pre-line font-mono text-xs text-neutral-300 leading-relaxed bg-black/40 p-3 rounded border border-neutral-800">
-                    {q.solution}
-                  </pre>
+                  <div className="font-mono text-xs text-neutral-300 leading-relaxed bg-black/40 p-3 rounded border border-neutral-800">
+                    <MathText text={q.solution} block={true} />
+                  </div>
                   <div className="flex flex-wrap gap-1 text-[11px] font-mono text-neutral-400 pt-1">
                     <span>Topics tested:</span>
                     {q.topicsTested.map((t, i) => (

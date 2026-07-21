@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { PYQS } from '../data/pyqs';
 import { Clock, Award, CheckCircle2, AlertTriangle, Play, RotateCcw } from 'lucide-react';
+import { MathText } from './MathText';
 
 export const MockTestGenerator: React.FC = () => {
   const [testActive, setTestActive] = useState(false);
@@ -175,9 +176,9 @@ export const MockTestGenerator: React.FC = () => {
                 </span>
               </div>
 
-              <p className="font-gowun text-sm text-neutral-200 leading-relaxed bg-neutral-900/60 p-4 rounded-xl border border-neutral-800">
-                {q.questionText}
-              </p>
+              <div className="font-gowun text-sm text-neutral-200 leading-relaxed bg-neutral-900/60 p-4 rounded-xl border border-neutral-800">
+                <MathText text={q.questionText} />
+              </div>
 
               {q.options && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -196,7 +197,7 @@ export const MockTestGenerator: React.FC = () => {
                             : 'bg-neutral-900 border-neutral-800 text-neutral-300 hover:border-neutral-700'
                         }`}
                       >
-                        {opt}
+                        <MathText text={opt} />
                       </button>
                     );
                   })}

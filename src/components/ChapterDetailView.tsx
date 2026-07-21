@@ -15,6 +15,7 @@ import {
   Check,
 } from 'lucide-react';
 import { PhysicsSimulator } from './PhysicsSimulator';
+import { MathText } from './MathText';
 
 interface ChapterDetailViewProps {
   chapter: Chapter;
@@ -124,9 +125,9 @@ export const ChapterDetailView: React.FC<ChapterDetailViewProps> = ({
         <div className="space-y-6">
           <div className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800 space-y-4">
             <h2 className="section-title">CHAPTER OVERVIEW</h2>
-            <p className="font-gowun text-neutral-300 text-base leading-relaxed">
-              {chapter.description}
-            </p>
+            <div className="font-gowun text-neutral-300 text-base leading-relaxed">
+              <MathText text={chapter.description} />
+            </div>
             <div className="flex flex-wrap gap-2 pt-2">
               <span className="text-xs font-mono text-neutral-400">High-yield topics:</span>
               {chapter.keyTopics.map((topic, i) => (
@@ -134,7 +135,7 @@ export const ChapterDetailView: React.FC<ChapterDetailViewProps> = ({
                   key={i}
                   className="px-2.5 py-1 bg-neutral-900 border border-neutral-800 rounded-md text-xs font-gowun text-neutral-300"
                 >
-                  ✓ {topic}
+                  ✓ <MathText text={topic} />
                 </span>
               ))}
             </div>
@@ -144,8 +145,8 @@ export const ChapterDetailView: React.FC<ChapterDetailViewProps> = ({
             <div key={idx} className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800 space-y-4">
               <h3 className="font-barrio text-2xl text-cyan-400">{sec.sectionTitle}</h3>
 
-              <div className="font-gowun text-neutral-300 whitespace-pre-line leading-relaxed text-base space-y-3 bg-neutral-900/50 p-4 rounded-xl border border-neutral-800 font-mono text-sm">
-                {sec.content}
+              <div className="font-gowun text-neutral-300 leading-relaxed text-base space-y-3 bg-neutral-900/50 p-4 rounded-xl border border-neutral-800">
+                <MathText text={sec.content} />
               </div>
 
               {sec.derivation && (
@@ -154,9 +155,9 @@ export const ChapterDetailView: React.FC<ChapterDetailViewProps> = ({
                     <Sparkles className="w-4 h-4" />
                     RIGOROUS CALCULUS DERIVATION
                   </div>
-                  <pre className="font-mono text-xs text-neutral-300 whitespace-pre-wrap leading-relaxed">
-                    {sec.derivation}
-                  </pre>
+                  <div className="font-mono text-xs text-neutral-300 leading-relaxed">
+                    <MathText text={sec.derivation} block={true} />
+                  </div>
                 </div>
               )}
 
@@ -164,7 +165,9 @@ export const ChapterDetailView: React.FC<ChapterDetailViewProps> = ({
                 <Lightbulb className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
                 <div className="space-y-1">
                   <span className="font-orbitron font-bold text-xs text-cyan-400 uppercase">Key Takeaway</span>
-                  <p className="font-gowun text-sm text-neutral-200">{sec.keyTakeaway}</p>
+                  <div className="font-gowun text-sm text-neutral-200">
+                    <MathText text={sec.keyTakeaway} />
+                  </div>
                 </div>
               </div>
             </div>
@@ -203,7 +206,7 @@ export const ChapterDetailView: React.FC<ChapterDetailViewProps> = ({
                 </div>
 
                 <div className="p-4 bg-neutral-900 border border-cyan-500/30 rounded-xl font-mono text-lg font-bold text-cyan-400 text-center tracking-wider">
-                  {form.expression}
+                  <MathText text={form.expression} block={true} />
                 </div>
 
                 <div className="space-y-1">
@@ -211,22 +214,24 @@ export const ChapterDetailView: React.FC<ChapterDetailViewProps> = ({
                   <div className="grid grid-cols-1 gap-1 text-xs font-gowun text-neutral-300">
                     {form.variables.map((v, i) => (
                       <div key={i} className="flex justify-between border-b border-neutral-900 pb-0.5">
-                        <span className="font-mono text-cyan-300/80">{v.symbol} ({v.name})</span>
+                        <span className="font-mono text-cyan-300/80">
+                          <MathText text={v.symbol} /> ({v.name})
+                        </span>
                         <span className="font-mono text-neutral-400">{v.unit}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <p className="font-gowun text-xs text-neutral-400 bg-neutral-900/60 p-2.5 rounded-lg border border-neutral-800">
-                  <strong className="text-neutral-300 font-orbitron">Concept:</strong> {form.keyConcept}
-                </p>
+                <div className="font-gowun text-xs text-neutral-400 bg-neutral-900/60 p-2.5 rounded-lg border border-neutral-800">
+                  <strong className="text-neutral-300 font-orbitron">Concept:</strong> <MathText text={form.keyConcept} />
+                </div>
               </div>
 
               {form.jeeTip && (
                 <div className="p-3 bg-cyan-500/10 border border-cyan-500/20 rounded-xl text-xs font-gowun text-cyan-300 flex items-start gap-2">
                   <AlertTriangle className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
-                  <span><strong>JEE Tip:</strong> {form.jeeTip}</span>
+                  <span><strong>JEE Tip:</strong> <MathText text={form.jeeTip} /></span>
                 </div>
               )}
             </div>
@@ -249,7 +254,7 @@ export const ChapterDetailView: React.FC<ChapterDetailViewProps> = ({
               </div>
 
               <div className="font-gowun text-neutral-200 text-base leading-relaxed bg-neutral-900/60 p-4 rounded-xl border border-neutral-800">
-                {ex.question}
+                <MathText text={ex.question} />
               </div>
 
               {ex.options && (
@@ -259,7 +264,7 @@ export const ChapterDetailView: React.FC<ChapterDetailViewProps> = ({
                       key={oIdx}
                       className="p-3 bg-neutral-900 border border-neutral-800 rounded-xl font-gowun text-xs text-neutral-300"
                     >
-                      {opt}
+                      <MathText text={opt} />
                     </div>
                   ))}
                 </div>
@@ -278,7 +283,7 @@ export const ChapterDetailView: React.FC<ChapterDetailViewProps> = ({
                 <ol className="list-decimal list-inside space-y-2 font-gowun text-sm text-neutral-300">
                   {ex.stepByStepSolution.map((step, sIdx) => (
                     <li key={sIdx} className="leading-relaxed bg-black/40 p-2 rounded border border-neutral-900">
-                      {step}
+                      <MathText text={step} />
                     </li>
                   ))}
                 </ol>
@@ -290,7 +295,9 @@ export const ChapterDetailView: React.FC<ChapterDetailViewProps> = ({
                   <span className="font-orbitron font-bold text-xs text-red-400 uppercase">
                     COMMON JEE ADVANCED TRAP
                   </span>
-                  <p className="font-gowun text-sm text-neutral-300">{ex.jeeTrap}</p>
+                  <div className="font-gowun text-sm text-neutral-300">
+                    <MathText text={ex.jeeTrap} />
+                  </div>
                 </div>
               </div>
             </div>

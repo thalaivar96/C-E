@@ -1,6 +1,7 @@
 import React from 'react';
 import { Chapter } from '../types';
 import { ArrowRight, Clock } from 'lucide-react';
+import { MathText } from './MathText';
 
 interface ChapterCardProps {
   chapter: Chapter;
@@ -26,9 +27,9 @@ export const ChapterCard: React.FC<ChapterCardProps> = ({ chapter, onSelect }) =
           {chapter.title}
         </h3>
 
-        <p className="font-gowun text-sm text-neutral-400 mt-2 line-clamp-3">
-          {chapter.description}
-        </p>
+        <div className="font-gowun text-sm text-neutral-400 mt-2 line-clamp-3">
+          <MathText text={chapter.description} />
+        </div>
 
         <div className="mt-4 pt-3 border-t border-neutral-800/80 flex flex-wrap gap-1.5">
           {chapter.keyTopics.slice(0, 2).map((topic, idx) => (
@@ -36,7 +37,7 @@ export const ChapterCard: React.FC<ChapterCardProps> = ({ chapter, onSelect }) =
               key={idx}
               className="text-[10px] font-gowun bg-neutral-900 border border-neutral-800 px-2 py-0.5 rounded text-neutral-400 truncate max-w-[240px]"
             >
-              • {topic}
+              • <MathText text={topic} />
             </span>
           ))}
         </div>
