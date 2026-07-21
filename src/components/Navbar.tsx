@@ -50,17 +50,14 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div
               onClick={() => setActiveTab('home')}
               className="flex items-center gap-2.5 cursor-pointer group"
+              title="Go to Home"
             >
-              <div className="w-9 h-9 rounded-xl bg-neutral-900 border border-white/10 flex items-center justify-center text-white group-hover:border-white/30 transition-colors shadow-inner shrink-0">
+              <div className="w-9 h-9 rounded-xl bg-neutral-900 border border-white/10 flex items-center justify-center text-white group-hover:border-cyan-400/40 transition-colors shadow-inner shrink-0">
                 <Atom className="w-5 h-5 animate-spin-slow text-cyan-400" />
               </div>
-              <div className="flex flex-col">
-                <span className="font-orbitron font-black text-base tracking-[0.1em] text-white group-hover:text-cyan-400 transition-colors uppercase whitespace-nowrap">
-                  COFFEE<span className="text-neutral-400">&</span>ENGINEER
-                </span>
-                <span className="text-[9px] font-mono tracking-wider text-neutral-400 uppercase hidden sm:block whitespace-nowrap">
-                  JEE ADVANCED PHYSICS
-                </span>
+              <div className="flex items-center gap-1.5 font-orbitron font-bold text-xs tracking-wider text-white group-hover:text-cyan-400 transition-colors">
+                <span className="px-1.5 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-mono text-[10px]">C&E</span>
+                <span className="hidden sm:inline text-neutral-300 group-hover:text-white">PHYSICS</span>
               </div>
             </div>
 
