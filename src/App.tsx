@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Subject, Chapter } from './types';
 import { CHAPTERS, PHYSICS_UNITS } from './data/chapters';
 import { Navbar } from './components/Navbar';
-import { HeroHeader } from './components/HeroHeader';
+import { HomePage } from './components/HomePage';
 import { ChapterCard } from './components/ChapterCard';
 import { ChapterDetailView } from './components/ChapterDetailView';
 import { PhysicsSimulator } from './components/PhysicsSimulator';
@@ -13,18 +13,19 @@ import { GlobalSearchModal } from './components/GlobalSearchModal';
 import { Atom, Compass, FlaskConical, Calculator } from 'lucide-react';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<string>('chapters');
+  const [activeTab, setActiveTab] = useState<string>('home');
   const [selectedSubject, setSelectedSubject] = useState<Subject>('physics');
   const [selectedChapter, setSelectedChapter] = useState<Chapter | null>(null);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
 
   const handleSelectChapter = (chapter: Chapter) => {
     setSelectedChapter(chapter);
+    setActiveTab('chapters');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <div className="min-h-screen bg-black text-gray-200 flex flex-col font-orbitron antialiased">
+    <div className="min-h-screen bg-black text-gray-200 flex flex-col font-orbitron antialiased overflow-x-hidden">
       {/* Top Navbar */}
       <Navbar
         activeTab={activeTab}
@@ -37,20 +38,23 @@ export default function App() {
         onOpenSearch={() => setSearchModalOpen(true)}
       />
 
-      {/* Hero Header Banner */}
-      <HeroHeader
-        onOpenMenu={() => setSearchModalOpen(true)}
-        onNavigateToTab={(tab) => {
-          setActiveTab(tab);
-          setSelectedChapter(null);
-        }}
-      />
-
       {/* Main Container Content */}
       <main className="flex-1 pb-16">
+        {/* VIEW 0: DEDICATED HOME PAGE WITH PLATFORM FEATURES */}
+        {activeTab === 'home' && (
+          <HomePage
+            onNavigateToTab={(tab) => {
+              setActiveTab(tab);
+              setSelectedChapter(null);
+            }}
+            onSelectChapter={handleSelectChapter}
+            onOpenSearch={() => setSearchModalOpen(true)}
+          />
+        )}
+
         {/* VIEW 1: CHAPTERS & CORE CURRICULUM */}
         {activeTab === 'chapters' && !selectedChapter && (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12 animate-fadeIn">
             {/* Subject Warning / Info Notice */}
             {selectedSubject !== 'physics' && (
               <div className="p-6 rounded-2xl bg-neutral-950 border border-cyan-500/30 flex items-center justify-between gap-4 animate-fadeIn">
@@ -99,7 +103,7 @@ export default function App() {
                     </span>
                   </div>
 
-                  {/* Horizontal Scroll Posts Container - Matching User CSS */}
+                  {/* Horizontal Scroll Posts Container */}
                   <div className="posts-scroll">
                     {unitChapters.map((ch) => (
                       <ChapterCard
@@ -187,6 +191,9 @@ export default function App() {
 
           <div className="flex flex-wrap items-center justify-center gap-6 text-xs font-mono text-neutral-400">
             <span>© 2026 COFFEE&ENGINEER</span>
+            <span className="hover:text-cyan-400 cursor-pointer transition-colors" onClick={() => setActiveTab('home')}>
+              HOME
+            </span>
             <span className="hover:text-cyan-400 cursor-pointer transition-colors" onClick={() => setActiveTab('chapters')}>
               PHYSICS CORE
             </span>
